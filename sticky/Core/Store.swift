@@ -1,47 +1,38 @@
 import Foundation
 
 internal protocol Savable {
-    
     associatedtype Object: Stickable
     func save()
-    
 }
 
 public extension NotificationCenter {
-    
     static let stickyInsert = NotificationCenter()
     static let stickyUpdate = NotificationCenter()
     static let stickyCreate = NotificationCenter()
     static let stickyDelete = NotificationCenter()
-    
 }
 
 public enum Action<StickyElement: StickyComparable>: Equatable {
-    
     case insert(StickyElement, StickyDataSet<StickyElement>)
     case update(Int, StickyElement, StickyDataSet<StickyElement>)
     case create(StickyElement)
     case delete
     case none
-    
 }
 
 extension Action: Hashable {
-    
-    public var hashValue: Int {
+    public func hash(into hasher: inout Hasher) {
         switch self {
-        case .insert: return 0
-        case .create: return 1
-        case .delete: return 2
-        case .update: return 3
-        case .none: return 4
+        case .insert: return hasher.combine(0)
+        case .create: return hasher.combine(1)
+        case .delete: return hasher.combine(2)
+        case .update: return hasher.combine(3)
+        case .none: return hasher.combine(4)
         }
     }
-    
 }
 
 extension Action: CustomStringConvertible {
-    
     public var description: String {
         switch self {
         case .insert: return "Insert"
@@ -51,28 +42,23 @@ extension Action: CustomStringConvertible {
         case .none: return "No Action"
         }
     }
-    
 }
 
 internal class Store {
-    
     internal static func stickyAction<StickyElement: StickyComparable>(
-            from stored: StickyDataSet<StickyElement>?,
-            with value: StickyElement,
-            at index: Int?) -> Action<StickyElement> {
-        
+        from stored: StickyDataSet<StickyElement>?,
+        with value: StickyElement,
+        at index: Int?) -> Action<StickyElement> {
         guard let objects = stored else { return .create(value) }
         guard let index = index else { return .insert(value, objects) }
         guard objects[index] == value else { return .update(index, value, objects) }
         return .none
-        
     }
-    
+
     internal static func remove<StickyElement: StickyComparable>(
-            value: StickyElement,
-            from dataSet: StickyDataSet<StickyElement>?,
-            at index: Int?) {
-        
+        value: StickyElement,
+        from dataSet: StickyDataSet<StickyElement>?,
+        at index: Int?) {
         guard var dataSet = dataSet else { return }
         if let index = index {
             dataSet.remove(at: index)
@@ -84,9 +70,8 @@ internal class Store {
             stickyLog("\(value) could not be found")
         }
     }
-    
+
     internal static func save<StickyElement: StickyComparable>(with action: Action<StickyElement>) {
-        
         switch action {
         case .insert(let value, var dataSet):
             dataSet.append(value)
@@ -98,8 +83,8 @@ internal class Store {
             dataSet[index] = value
             dataSet.saveWithOverwrite()
             stickyLog("\(oldValue) updated to \(value)")
-            NotificationCenter.stickyUpdate.post(name: StickyElement.notificationName, object: nil, userInfo: [action: [oldValue,value]])
-        case .create(let value):
+            NotificationCenter.stickyUpdate.post(name: StickyElement.notificationName, object: nil, userInfo: [action: [oldValue, value]])
+        case let .create(value):
             let dataSet = Array(arrayLiteral: value)
             dataSet.saveWithOverwrite()
             stickyLog("Created new file for \(value))")
@@ -107,6 +92,5 @@ internal class Store {
         default:
             stickyLog("\(StickyElement.entityName): No action taken")
         }
-        
     }
 }

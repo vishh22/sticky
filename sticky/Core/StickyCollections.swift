@@ -31,7 +31,7 @@ public extension Collection where Element: Stickable, Self: Codable {
 }
 
 public extension Collection where Element: Stickable & Equatable & StickyPromise, Self: Codable {
-    public func stickAll() {
+    func stickAll() {
         if Sticky.shared.configuration.async {
             let queue = DispatchQueue(label: queueNameWrite)
             queue.sync {
@@ -49,7 +49,7 @@ public extension Collection where Element: Stickable & Equatable & StickyPromise
 }
 
 public extension Collection where Element: StickyKeyable & StickyPromise, Self: Codable {
-    public func stickAllWithKey() {
+    func stickAllWithKey() {
         if Sticky.shared.configuration.async {
             let queue = DispatchQueue(label: queueNameWrite)
             queue.async {

@@ -14,9 +14,6 @@
 		BC265EC11FF93B850068422A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC265EBF1FF93B850068422A /* Main.storyboard */; };
 		BC265EC31FF93B850068422A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC265EC21FF93B850068422A /* Assets.xcassets */; };
 		BC265EC61FF93B850068422A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC265EC41FF93B850068422A /* LaunchScreen.storyboard */; };
-		BC265ED11FF93B850068422A /* stickyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC265ED01FF93B850068422A /* stickyAppTests.swift */; };
-		BC265F311FF942C70068422A /* Sticky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC265F281FF942C70068422A /* Sticky.framework */; };
-		BC265F381FF942C70068422A /* StickyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC265F371FF942C70068422A /* StickyTests.swift */; };
 		BC265F3D1FF942C70068422A /* Sticky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC265F281FF942C70068422A /* Sticky.framework */; };
 		BC265F3E1FF942C70068422A /* Sticky.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC265F281FF942C70068422A /* Sticky.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC265F491FF9438F0068422A /* Stickable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC265F481FF9438F0068422A /* Stickable.swift */; };
@@ -39,27 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BC265ECD1FF93B850068422A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BC265EB01FF93B850068422A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BC265EB71FF93B850068422A;
-			remoteInfo = stickyApp;
-		};
-		BC265F321FF942C70068422A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BC265EB01FF93B850068422A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BC265F271FF942C70068422A;
-			remoteInfo = Sticky;
-		};
-		BC265F341FF942C70068422A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BC265EB01FF93B850068422A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BC265EB71FF93B850068422A;
-			remoteInfo = stickyApp;
-		};
 		BC265F3B1FF942C70068422A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BC265EB01FF93B850068422A /* Project object */;
@@ -93,14 +69,7 @@
 		BC265EC21FF93B850068422A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC265EC51FF93B850068422A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC265EC71FF93B850068422A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC265ECC1FF93B850068422A /* stickyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stickyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC265ED01FF93B850068422A /* stickyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stickyAppTests.swift; sourceTree = "<group>"; };
-		BC265ED21FF93B850068422A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC265F281FF942C70068422A /* Sticky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sticky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC265F2B1FF942C70068422A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC265F301FF942C70068422A /* StickyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC265F371FF942C70068422A /* StickyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyTests.swift; sourceTree = "<group>"; };
-		BC265F391FF942C70068422A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC265F481FF9438F0068422A /* Stickable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stickable.swift; sourceTree = "<group>"; };
 		BC265F4A1FF9523A0068422A /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		BC265F4C1FF953320068422A /* Sticky.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sticky.swift; sourceTree = "<group>"; };
@@ -130,25 +99,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BC265EC91FF93B850068422A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BC265F241FF942C70068422A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC265F2D1FF942C70068422A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC265F311FF942C70068422A /* Sticky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +114,7 @@
 			children = (
 				BCBAFE36202DF4A400EA4619 /* stickyExample.playground */,
 				BC265EBA1FF93B850068422A /* GroceryList */,
-				BC265ECF1FF93B850068422A /* GroceryListTests */,
 				BC265F291FF942C70068422A /* Sticky */,
-				BC265F361FF942C70068422A /* StickyTests */,
 				BC265EB91FF93B850068422A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,9 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				BC265EB81FF93B850068422A /* stickyApp.app */,
-				BC265ECC1FF93B850068422A /* stickyAppTests.xctest */,
 				BC265F281FF942C70068422A /* Sticky.framework */,
-				BC265F301FF942C70068422A /* StickyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,35 +142,16 @@
 			path = GroceryList;
 			sourceTree = "<group>";
 		};
-		BC265ECF1FF93B850068422A /* GroceryListTests */ = {
-			isa = PBXGroup;
-			children = (
-				BC265ED01FF93B850068422A /* stickyAppTests.swift */,
-				BC265ED21FF93B850068422A /* Info.plist */,
-			);
-			path = GroceryListTests;
-			sourceTree = "<group>";
-		};
 		BC265F291FF942C70068422A /* Sticky */ = {
 			isa = PBXGroup;
 			children = (
 				BC5AAA842093C25100C930E2 /* Core */,
 				BC5AAA832093C23D00C930E2 /* Configuration */,
 				BC509B5F2093773300EBBFC9 /* StickySchemaUpdater */,
-				BC265F2B1FF942C70068422A /* Info.plist */,
 				BC265F4A1FF9523A0068422A /* FileHandler.swift */,
 				BC509B5D20933B0600EBBFC9 /* StickyLogger.swift */,
 			);
 			path = Sticky;
-			sourceTree = "<group>";
-		};
-		BC265F361FF942C70068422A /* StickyTests */ = {
-			isa = PBXGroup;
-			children = (
-				BC265F371FF942C70068422A /* StickyTests.swift */,
-				BC265F391FF942C70068422A /* Info.plist */,
-			);
-			path = StickyTests;
 			sourceTree = "<group>";
 		};
 		BC509B5F2093773300EBBFC9 /* StickySchemaUpdater */ = {
@@ -308,24 +239,6 @@
 			productReference = BC265EB81FF93B850068422A /* stickyApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BC265ECB1FF93B850068422A /* stickyAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BC265ED81FF93B850068422A /* Build configuration list for PBXNativeTarget "stickyAppTests" */;
-			buildPhases = (
-				BC265EC81FF93B850068422A /* Sources */,
-				BC265EC91FF93B850068422A /* Frameworks */,
-				BC265ECA1FF93B850068422A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BC265ECE1FF93B850068422A /* PBXTargetDependency */,
-			);
-			name = stickyAppTests;
-			productName = stickyAppTests;
-			productReference = BC265ECC1FF93B850068422A /* stickyAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		BC265F271FF942C70068422A /* Sticky */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC265F3F1FF942C70068422A /* Build configuration list for PBXNativeTarget "Sticky" */;
@@ -344,25 +257,6 @@
 			productReference = BC265F281FF942C70068422A /* Sticky.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BC265F2F1FF942C70068422A /* StickyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BC265F431FF942C70068422A /* Build configuration list for PBXNativeTarget "StickyTests" */;
-			buildPhases = (
-				BC265F2C1FF942C70068422A /* Sources */,
-				BC265F2D1FF942C70068422A /* Frameworks */,
-				BC265F2E1FF942C70068422A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BC265F331FF942C70068422A /* PBXTargetDependency */,
-				BC265F351FF942C70068422A /* PBXTargetDependency */,
-			);
-			name = StickyTests;
-			productName = StickyTests;
-			productReference = BC265F301FF942C70068422A /* StickyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -375,22 +269,13 @@
 				TargetAttributes = {
 					BC265EB71FF93B850068422A = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
-					};
-					BC265ECB1FF93B850068422A = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = BC265EB71FF93B850068422A;
 					};
 					BC265F271FF942C70068422A = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
-					};
-					BC265F2F1FF942C70068422A = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = BC265EB71FF93B850068422A;
 					};
 				};
 			};
@@ -408,9 +293,7 @@
 			projectRoot = "";
 			targets = (
 				BC265EB71FF93B850068422A /* stickyApp */,
-				BC265ECB1FF93B850068422A /* stickyAppTests */,
 				BC265F271FF942C70068422A /* Sticky */,
-				BC265F2F1FF942C70068422A /* StickyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -430,21 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BC265ECA1FF93B850068422A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BC265F261FF942C70068422A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC265F2E1FF942C70068422A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -463,14 +332,6 @@
 				BCA74ED7208138460087F9BF /* GroceryListTableViewCell.swift in Sources */,
 				BC265EBC1FF93B850068422A /* AppDelegate.swift in Sources */,
 				BCA74ED92081390B0087F9BF /* GroceryItem.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BC265EC81FF93B850068422A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC265ED11FF93B850068422A /* stickyAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,32 +354,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BC265F2C1FF942C70068422A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC265F381FF942C70068422A /* StickyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BC265ECE1FF93B850068422A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BC265EB71FF93B850068422A /* stickyApp */;
-			targetProxy = BC265ECD1FF93B850068422A /* PBXContainerItemProxy */;
-		};
-		BC265F331FF942C70068422A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BC265F271FF942C70068422A /* Sticky */;
-			targetProxy = BC265F321FF942C70068422A /* PBXContainerItemProxy */;
-		};
-		BC265F351FF942C70068422A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BC265EB71FF93B850068422A /* stickyApp */;
-			targetProxy = BC265F341FF942C70068422A /* PBXContainerItemProxy */;
-		};
 		BC265F3C1FF942C70068422A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BC265F271FF942C70068422A /* Sticky */;
@@ -668,7 +506,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.GroceryList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -684,42 +522,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.GroceryList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		BC265ED91FF93B850068422A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23WM9XXG5V;
-				INFOPLIST_FILE = stickyAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.stickyAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stickyApp.app/stickyApp";
-			};
-			name = Debug;
-		};
-		BC265EDA1FF93B850068422A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23WM9XXG5V;
-				INFOPLIST_FILE = stickyAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.stickyAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stickyApp.app/stickyApp";
 			};
 			name = Release;
 		};
@@ -735,14 +539,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sticky/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.Sticky;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -761,48 +565,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sticky/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.Sticky;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		BC265F441FF942C70068422A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23WM9XXG5V;
-				INFOPLIST_FILE = StickyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.StickyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stickyApp.app/stickyApp";
-			};
-			name = Debug;
-		};
-		BC265F451FF942C70068422A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 23WM9XXG5V;
-				INFOPLIST_FILE = StickyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.corporatelangdon.StickyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stickyApp.app/stickyApp";
 			};
 			name = Release;
 		};
@@ -827,29 +599,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BC265ED81FF93B850068422A /* Build configuration list for PBXNativeTarget "stickyAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BC265ED91FF93B850068422A /* Debug */,
-				BC265EDA1FF93B850068422A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BC265F3F1FF942C70068422A /* Build configuration list for PBXNativeTarget "Sticky" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BC265F401FF942C70068422A /* Debug */,
 				BC265F411FF942C70068422A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BC265F431FF942C70068422A /* Build configuration list for PBXNativeTarget "StickyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BC265F441FF942C70068422A /* Debug */,
-				BC265F451FF942C70068422A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -3,8 +3,7 @@ import Foundation
 fileprivate let stickyDataDumpLogQueue = "queue.sticky.log"
 
 public extension Stickable {
-    
-    public static func read() -> [Self]? {
+    static func read() -> [Self]? {
         if let data = cache.stored[entityName], !data.isEmpty {
             stickyLog("Read from cache")
             return data as? [Self]
@@ -12,14 +11,14 @@ public extension Stickable {
             return Self.decode(from: fileData)
         }
     }
-    
-    public static func readAsync(completion: @escaping ([Self]?) -> Void) {
+
+    static func readAsync(completion: @escaping ([Self]?) -> Void) {
         DispatchQueue.main.async {
             completion(Self.decode(from: fileData))
         }
     }
-    
-    public static func dumpDataStoreToLog() {
+
+    static func dumpDataStoreToLog() {
         if Sticky.shared.configuration.logStyle == .verbose {
             if Sticky.shared.configuration.async {
                 let queue = DispatchQueue(label: stickyDataDumpLogQueue, qos: .background)
@@ -34,24 +33,24 @@ public extension Stickable {
             stickyLog("\(entityName).\(#function) - Please enable logging in StickyConfiguration to see stored data")
         }
     }
-    
-    public static var entityName: String {
+
+    static var entityName: String {
         return String(describing: Self.self)
     }
-    
-    public static var notificationName: NSNotification.Name {
-            return NSNotification.Name(entityName)
+
+    static var notificationName: NSNotification.Name {
+        return NSNotification.Name(entityName)
     }
-    
+
     private static var debugDescription: String {
         guard let data = fileData else { return "" }
         return "\(entityName): \(String(bytes: data, encoding: .utf8) ?? "")"
     }
-    
+
     private static func decode(from data: Data?) -> [Self]? {
-        var decoded: [Self]? = nil
+        var decoded: [Self]?
         guard let jsonData = data, !jsonData.isEmpty else { return nil }
-        
+
         do {
             let decoder = JSONDecoder()
             decoder.userInfo = [CodingUserInfoKey.codedTypeKey: entityName]
@@ -62,30 +61,32 @@ public extension Stickable {
             errorMessage += debugDescription
             stickyLog(errorMessage, logAction: .error)
         }
-        
+
         // Write to cache if data is returned and cache is empty
         if let decoded = decoded, cache.stored.isEmpty {
             cache.stored.updateValue(decoded, forKey: entityName)
         }
-        
+
         return decoded
     }
-    
+
     private static var fileData: Data? {
         return FileHandler.read(from: filePath)
     }
-    
-    public static var filePath: String {
+
+    static var filePath: String {
         return FileHandler.url(for: Self.entityName).path
     }
-    
+
     private static func handleDecodeError(_ error: Error) -> String? {
         guard let decodeError = error as? DecodingError else { return nil }
         switch decodeError {
-        case .keyNotFound(_, let context): return context.debugDescription
-        case .dataCorrupted(let context): return context.debugDescription
-        case .typeMismatch(_, let context): return context.debugDescription
-        case .valueNotFound(_, let context): return context.debugDescription
+        case let .keyNotFound(_, context): return context.debugDescription
+        case let .dataCorrupted(context): return context.debugDescription
+        case let .typeMismatch(_, context): return context.debugDescription
+        case let .valueNotFound(_, context): return context.debugDescription
+        @unknown default:
+            return ""
         }
     }
 }
@@ -95,12 +96,13 @@ public extension Stickable where Self: Equatable & StickyPromise {
     ///
     /// Checks to see if data object is stored locally.
     ///
-    public var isStored: Bool {
-        if let _ = Self.read()?.index(of: self) {
+    var isStored: Bool {
+        if let _ = Self.read()?.firstIndex(of: self) {
             return true
         }
         return false
     }
+
     ///
     /// If data object conforms to Equatable, this method will
     /// scan the local store and find the first value that matches
@@ -112,33 +114,33 @@ public extension Stickable where Self: Equatable & StickyPromise {
     /// Use this if data object doesn't need to update and storage space
     /// and performance are less concerning. More suited for transactional data.
     ///
-    public func stick() {
+    func stick() {
         stickyLog("\(Self.entityName) saving without key")
-        self.save()
+        save()
     }
-    
-    public func unstick() {
+
+    func unstick() {
         delete()
     }
-    
+
     // Implementation
-    
+
     fileprivate func delete() {
         let dataSet = Self.read()
         stickyLog("\(Self.entityName) removing data \(self)")
-        let index = dataSet?.index(of: self)
+        let index = dataSet?.firstIndex(of: self)
         Store.remove(value: self, from: dataSet, at: index)
     }
-    
+
     fileprivate func save() {
         let dataSet = Self.read()
-        let index = dataSet?.index(of: self)
+        let index = dataSet?.firstIndex(of: self)
         let stickyAction = Store.stickyAction(from: dataSet, with: self, at: index)
         Store.save(with: stickyAction)
     }
 }
 
-//MARK: - Stickable - Equatable & StickyKey
+// MARK: - Stickable - Equatable & StickyKey
 
 public extension Stickable where Self: Equatable & StickyKey & StickyPromise {
     // Public API
@@ -152,23 +154,23 @@ public extension Stickable where Self: Equatable & StickyKey & StickyPromise {
     /// Use this method if you have data objects with one or two
     /// properties that ensure uniqueness and need to update values frequently.
     ///
-    @discardableResult public func stickWithKey() -> StickyPromise {
+    @discardableResult func stickWithKey() -> StickyPromise {
         let dataSet = Self.read()
         stickyLog("\(Self.entityName) saving with key")
         let index = dataSet?
-                    .map({ $0.key })
-                    .index(of: self.key)
+            .map({ $0.key })
+            .firstIndex(of: key)
         let stickyAction = Store.stickyAction(from: dataSet, with: self, at: index)
         Store.save(with: stickyAction)
         return self as StickyPromise
     }
-    
-    public func unstick() {
+
+    func unstick() {
         let dataSet = Self.read()
         stickyLog("\(Self.entityName) removing data \(self)")
         let index = dataSet?
             .map({ $0.key })
-            .index(of: self.key)
+            .firstIndex(of: key)
         Store.remove(value: self, from: dataSet, at: index)
     }
 }
